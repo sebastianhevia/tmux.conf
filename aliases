@@ -1,0 +1,20 @@
+gitall() {
+    git add .
+    if [ "$1" != "" ] # or better, if [ -n "$1" ]
+    then
+        git commit -m "$1"
+    else
+        git commit -m update
+    fi
+    ggpush
+}
+
+alias dev-back='~/.config/tmux/create-dev-environment.sh ~/repositories/agendapro-backend BACKEND FULL'
+alias dev-engine='~/.config/tmux/create-dev-environment.sh ~/repositories/agendapro_engine ENGINE FULL'
+alias dev-front='~/.config/tmux/create-dev-environment.sh ~/repositories/agendapro-frontend FRONtEND FULL'
+alias dev-mono='~/.config/tmux/create-dev-environment.sh ~/repositories/business-frontend-monorepo MONOREPO FULL'
+alias dev-bpro='~/.config/tmux/create-dev-environment.sh ~/repositories/billing_pro BILLINGPRO FULL'
+
+dev-path() {
+	~/.config/tmux/wildcard-env.sh "$1"
+}
